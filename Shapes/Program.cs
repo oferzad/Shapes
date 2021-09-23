@@ -23,6 +23,55 @@ namespace Shapes
 
             PrintBasedOnColor(yellowSquare, yellowRectangle, blueTriangle, "Yellow");
         }
+
+        static int Poly1(Shape [] shapes, string color)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < shapes.Length; i++)
+            {
+                if (shapes[i].GetColor() == color)
+                    counter++;
+            }
+            return counter;
+        }
+
+        static int Poly2(Shape[] shapes, double max)
+        {
+            int counter = 0;
+
+            for (int i = 0; i < shapes.Length; i++)
+            {
+                if (shapes[i] is Triangle)
+                {
+                    Triangle t = (Triangle)shapes[i];
+                    if (t.GetLength() > max)
+                        counter++;
+                }
+            }
+            return counter;
+        }
+
+        static double Poly3(Shape[] shapes)
+        {
+            double sum = 0;
+
+            for (int i = 0; i < shapes.Length; i++)
+            {
+                if (shapes[i] is Triangle)
+                {
+                    Triangle t = (Triangle)shapes[i];
+                    sum += t.Area();
+                }
+                else if (shapes[i] is Rectangle)
+                {
+                    Rectangle r = (Rectangle)shapes[i];
+                    sum += r.Area();
+                }
+            }
+            return sum;
+        }
+
         static void Main(string[] args)
         {
             Assignment3();
