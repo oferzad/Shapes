@@ -72,9 +72,32 @@ namespace Shapes
             return sum;
         }
 
+        static void PolyAssignment()
+        {
+            Shape[] arr = new Shape[4];
+            arr[0] = new Shape(10, "blue");
+            arr[1] = new Rectangle(15, 12, "red");
+            arr[2] = new Triangle(14, 7, "blue");
+            arr[3] = new Square(11, "red");
+
+            int reds = Poly1(arr, "red");
+            int trianglesWithLongBase = Poly2(arr, 12);
+            double sumArea = Poly3(arr);
+
+            Console.WriteLine("The Shapes:");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
+            Console.WriteLine("****************** The results *******************");
+            Console.WriteLine($"Number of red shapes in the array: {reds}");
+            Console.WriteLine($"Number of triangles with base longer than 12: {trianglesWithLongBase}");
+            Console.WriteLine($"Sum of all shapes area: {sumArea}");
+        }
         static void Main(string[] args)
         {
-            Assignment3();
+            PolyAssignment();
         }
     }
 }
